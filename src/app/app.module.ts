@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthPage } from './auth/auth.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // const appRoutes: Routes = [
 //   {
@@ -34,7 +35,8 @@ import { AuthPage } from './auth/auth.page';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(),    AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(),     FormsModule,
+         AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

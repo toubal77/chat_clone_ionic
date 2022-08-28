@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HomeChatPage,
     children: [
       {
-        path: 'home',
+        path: 'chatId',
         children: [
           {
             path: '',
