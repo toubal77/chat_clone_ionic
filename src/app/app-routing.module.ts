@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home-chat/home-chat.module').then( m => m.HomeChatPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./auth/page404/page404.module').then( m => m.Page404PageModule)
+  },
 
 ];
 
