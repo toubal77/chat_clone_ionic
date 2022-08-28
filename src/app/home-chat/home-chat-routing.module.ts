@@ -10,11 +10,11 @@ const routes: Routes = [
     component: HomeChatPage,
     children: [
       {
-        path: 'chatId',
+        path: ':chatId',
         children: [
           {
             path: '',
-            loadChildren: () => import('./home-chat.module').then( m => m.HomeChatPageModule)
+            loadChildren: () => import('./detail-chat/detail-chat.module').then( m => m.DetailChatPageModule)
           },
         ]
       },
