@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeChatService } from './home-chat.service';
+import { HomeChatService } from '../home-chat.service';
 
 @Component({
-  selector: 'app-home-chat',
-  templateUrl: './home-chat.page.html',
-  styleUrls: ['./home-chat.page.scss'],
+  selector: 'app-detail-chat',
+  templateUrl: './detail-chat.component.html',
+  styleUrls: ['./detail-chat.component.scss'],
 })
-export class HomeChatPage implements OnInit {
+export class DetailChatComponent implements OnInit {
+
   listStory = [];
   constructor(private homeChatService: HomeChatService) { }
 

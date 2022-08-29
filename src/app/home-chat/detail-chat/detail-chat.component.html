@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon name="search" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="text-center">All Chat</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button routerLink="/home/detailChat">
+                <ion-icon name="add" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container" style="border: 1px solid red; height:120px">
+        <ion-grid>
+            <ion-row>
+                <ion-col *ngFor="let itemStory of listStory; let i = index">
+                    <ion-avatar>
+                        <img [src]=itemStory.img>
+                    </ion-avatar>
+                    <ion-label>{{itemStory.label + i}} </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="container" style="margin-top: 20px;border: 1px solid red;">
+        <form>
+            <ion-input type="text" placeholder="Search" class="input-group-text"></ion-input>
+        </form>
+    </div>
+    <app-home-list></app-home-list>
+    <!-- <ion-router-outlet></ion-router-outlet> -->
+</ion-content>

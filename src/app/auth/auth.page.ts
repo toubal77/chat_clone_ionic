@@ -24,7 +24,7 @@ isLogin: boolean;
 
   isAuth(){
     if(this.isLogin){
-      this.router.navigateByUrl('/home');
+      this.router.navigate(['/home']);
     }
   }
 }
