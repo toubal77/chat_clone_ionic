@@ -8,8 +8,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { AllChatComponent } from './all-chat/all-chat.component';
-import { HomeListComponent } from './home-list/home-list.component';
 import { DetailChatComponent } from './detail-chat/detail-chat.component';
+import { HomeListComponent } from './all-chat/home-list/home-list.component';
 
 @NgModule({
   imports: [
