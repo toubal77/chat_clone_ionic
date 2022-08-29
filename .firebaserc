@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "firstangular-476fe": {
+      "hosting": {
+        "app": [
+          "firstangular-476fe"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "firstangular-476fe"
+  }
+}
