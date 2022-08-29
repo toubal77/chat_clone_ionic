@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeChatService } from '../home-chat.service';
 
 @Component({
   selector: 'app-detail-chat',
@@ -8,13 +7,8 @@ import { HomeChatService } from '../home-chat.service';
 })
 export class DetailChatComponent implements OnInit {
 
-  listStory = [];
-  constructor(private homeChatService: HomeChatService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.listStory = this.homeChatService.getListStory();
-    console.log(this.listStory);
-  }
-
+  ngOnInit() {}
 
 }
