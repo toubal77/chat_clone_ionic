@@ -37,9 +37,8 @@
                     <p class="text-danger">{{ errorMessage }}</p>
                 </ion-col>
                 <ion-col size-sm="6 " offset-sm="3 ">
-                    <!-- <ion-label>{{ isLogin ? 'You don\'t have account':'You have account'}}</ion-label> -->
-                    <ion-label>'You don\'t have account'</ion-label>
-                    <ion-button routerLink="/auth/signup">Create Account</ion-button>
+                    <ion-label>You don't have account</ion-label>
+                    <span routerLink="/auth/signup" style="color:red; font-weight:bold;"> Create a new account</span>
                 </ion-col>
             </ion-row>
         </ion-grid>
