@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/service/auth.service';
-
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -31,6 +33,8 @@ export class SignUpComponent implements OnInit {
   onSubmit(){
     const email = this.authForm.get('email').value;
     const password = this.authForm.get('password').value;
+    const username = this.authForm.get('username').value;
+    const bio = this.authForm.get('bio').value;
     this.authService.createUser(email, password).then(
       ()=>{
         this.router.navigateByUrl('home');
@@ -39,6 +43,9 @@ export class SignUpComponent implements OnInit {
         this.errorMessage = error;
       }
     );
+    const idUser =   Math.floor(Math.random() * (999999999999 - 100000000000 + 1)) + 100000000000;
+    const user = new User(idUser.toString(),email,username,bio);
+      this.authService.setUserInfo(user,idUser.toString());
   }
 
 }
