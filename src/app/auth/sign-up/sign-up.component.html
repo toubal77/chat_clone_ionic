@@ -1,3 +1,62 @@
-<p>
-  sign-up works!
-</p>
+<ion-header>
+    <ion-toolbar>
+        <ion-title class="text-center">Chat Clone signUp</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div style="height: 100px;"></div>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <ion-grid>
+            <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-icon name="chatbubble-ellipses-outline" size="large"></ion-icon>
+                </ion-col>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-label>Chat Clone Ionic</ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-item>
+                        <ion-label position="fixed">Email</ion-label>
+                        <ion-input type="email" formControlName="email" placeholder="exemple@gmail.com" required></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-item>
+                        <ion-label position="fixed">Username</ion-label>
+                        <ion-input type="text" formControlName="username" placeholder="username Thomas => tom" required></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-item>
+                        <ion-label position="fixed">Bio</ion-label>
+                        <ion-input type="text" formControlName="bio" placeholder="your bio" required></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-item>
+                        <ion-label position="fixed">Password</ion-label>
+                        <ion-input type="password" formControlName="password" placeholder="password" required></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-button class="btn btn-primary" type="submit" [disabled]="authForm.invalid ">Login</ion-button>
+                    <p class="text-danger">{{ errorMessage }}</p>
+                </ion-col>
+                <ion-col size-sm="6 " offset-sm="3 ">
+                    <!-- <ion-label>{{ isLogin ? 'You don\'t have account':'You have account'}}</ion-label> -->
+                    <ion-label>'You don\'t have account'</ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

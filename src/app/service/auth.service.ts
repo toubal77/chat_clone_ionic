@@ -39,7 +39,7 @@ export class AuthService {
 
 signOutUser(){
   firebase.auth().signOut().then(()=>{
-    this.router.navigateByUrl('auth/signIn');
+    this.router.navigateByUrl('auth/signin');
   });
 }
 }
