@@ -1,37 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthPage } from './auth.page';
-import { Page404Page } from './page404/page404.page';
-
+import { Page404Component } from './page404/page404.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 const routes: Routes = [
   {
     path: '',
-    component: AuthPage,
-    children: [
-      {
-        path: 'page404',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
-          },
-        ]
-      },
-      {
-        path: '',
-        redirectTo: 'auth',
-        pathMatch: 'full'
-      }
-    ]
+    component: SignInComponent,
   },
   {
-    path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full'
+    path: 'signIn',
+    component: SignInComponent,
   },
+  {
+    path: 'signUp',
+    component: SignUpComponent,
+  },
+  {
+    path: '**',
+    component: Page404Component,
+  }
 
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('./auth/page404/page404.module').then( m => m.Page404PageModule)
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
 ];
 
