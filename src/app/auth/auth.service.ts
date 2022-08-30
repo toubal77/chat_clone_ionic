@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { environment } from 'src/environments/environment.prod';
@@ -8,7 +9,7 @@ firebase.initializeApp(environment.firebase);
 })
 export class AuthService {
   isLogin = true;
-  constructor() { }
+  constructor(private router: Router) { }
 
   getIsLogin(){
     return this.isLogin;
@@ -37,8 +38,8 @@ export class AuthService {
 }
 
 signOutUser(){
-  firebase.auth().signOut();
+  firebase.auth().signOut().then(()=>{
+    this.router.navigateByUrl('auth');
+  });
 }
-
-
 }
