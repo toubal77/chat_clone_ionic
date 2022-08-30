@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
@@ -8,23 +9,34 @@ import { AuthService } from './auth.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-isLogin: boolean;
-  constructor(private router: Router,private authService: AuthService) { }
+  authForm!: FormGroup;
+  errorMessage!: string;
+  constructor(private router: Router,
+   private  formBuilder: FormBuilder,
+    private authService: AuthService) { }
 
-  ngOnInit() {
-    this.getisLogin();
-  }
-
-  getisLogin(){
-   this.isLogin= this.authService.getIsLogin();
-  }
-  signinSignUp(){
-    this.authService.isLoginOrNot();
+  ngOnInit(): void {
+    this.initForm();
   }
 
-  isAuth(){
-    if(this.isLogin){
-      this.router.navigate(['/home']);
-    }
+  initForm(){
+    this.authForm = this.formBuilder.group({
+    email:['',[Validators.required, Validators.email]],
+      password:['',[Validators.required, Validators.pattern('[a-zA-Z0-9]{6}')]],
+    });
   }
+
+  onSubmit(){
+    const email = this.authForm.get('email').value;
+    const password = this.authForm.get('password').value;
+    this.authService.createUser(email, password).then(
+      ()=>{
+        this.router.navigateByUrl('home');
+      },
+      (error)=>{
+        this.errorMessage = error;
+      }
+    );
+  }
+
 }
