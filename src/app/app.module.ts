@@ -19,6 +19,11 @@ import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import firebase from 'firebase/compat/app';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // const appRoutes: Routes = [
 //   {
 //     path: '',
@@ -47,7 +52,11 @@ firebase.initializeApp(environment.firebase);
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(),     FormsModule,
-         AppRoutingModule,
+         AppRoutingModule, AngularFireModule.initializeApp(environment.firebase),
+         AngularFireAuthModule,
+         AngularFirestoreModule,
+         AngularFireStorageModule,
+         AngularFireDatabaseModule,
          provideFirebaseApp(() => initializeApp(environment.firebase)),
          provideAnalytics(() => getAnalytics()),
          provideAuth(() => getAuth()),

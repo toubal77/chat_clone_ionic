@@ -30,6 +30,15 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+   buildUser(idUser: string, email: string, username: string, bio: string) {
+   const user = new User();
+   user.uid =idUser;
+   user.email = email;
+   user.username = username;
+   user.bio = bio;
+   return user;
+  }
+
   onSubmit(){
     const email = this.authForm.get('email').value;
     const password = this.authForm.get('password').value;
@@ -44,8 +53,8 @@ export class SignUpComponent implements OnInit {
       }
     );
     const idUser =   Math.floor(Math.random() * (999999999999 - 100000000000 + 1)) + 100000000000;
-    const user = new User(idUser.toString(),email,username,bio);
-      this.authService.setUserInfo(user,idUser.toString());
+    const user = this.buildUser(idUser.toString(),email,username,bio);
+    this.authService.setUserInfo(user,idUser.toString());
   }
 
 }

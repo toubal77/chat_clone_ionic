@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import { User } from '../models/user';;
+import { User } from '../models/user';
+import 'firebase/firestore';
+import 'firebase/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isLogin = true;
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private firestore: AngularFirestore) { }
 
   getIsLogin(){
     return this.isLogin;
@@ -43,12 +46,13 @@ signOutUser(){
 }
 
 setUserInfo(user: User,idUser: string){
-  firebase.firestore().collection('users').doc(idUser.toString()).set(Object.assign({}, user)).then(()=>{
-    console.log('add info user');
-  }).catch((error: string)=>{
-    console.log('info user not added '+error);
-
-  });
+  return new Promise<void>((resolve,reject) =>{
+    console.log('rjhfs');
+    const hh = this.firestore.collection('users').doc(idUser.toString()).set(Object.assign({}, user)).then(
+        ()=>{resolve();}
+      ,(error: any)=>{reject(error);
+    });
+  },);
 }
 
 }
