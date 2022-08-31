@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail-chat',
@@ -6,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-chat.component.scss'],
 })
 export class DetailChatComponent implements OnInit {
+  id: number;
+  constructor(private route: ActivatedRoute) { }
 
-  constructor() { }
+  ngOnInit() {
 
-  ngOnInit() {}
+    this.route.params.subscribe(params =>{
+    this.id = params.detail;
+      console.log(this.id);
+
+    });
+
+  }
 
 }

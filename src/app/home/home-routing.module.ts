@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'detail',
     component: DetailChatComponent,
+  },
+  {
+    path: ':detail',
+    component: DetailChatComponent,
   }
 
 ];
