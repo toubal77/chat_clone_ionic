@@ -12,7 +12,6 @@ export class HomeListComponent implements OnInit {
 
   ngOnInit() {
     this.listStory = this.homeService.getListStory();
-    console.log(this.listStory);
   }
 
 }

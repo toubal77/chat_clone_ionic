@@ -47,7 +47,6 @@ signOutUser(){
 
 setUserInfo(user: User,idUser: string){
   return new Promise<void>((resolve,reject) =>{
-    console.log('rjhfs');
     const hh = this.firestore.collection('users').doc(idUser.toString()).set(Object.assign({}, user)).then(
         ()=>{resolve();}
       ,(error: any)=>{reject(error);
