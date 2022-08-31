@@ -6,7 +6,6 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthPage } from './auth/auth.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -19,7 +18,7 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-
+import firebase from 'firebase/compat/app';
 // const appRoutes: Routes = [
 //   {
 //     path: '',
@@ -43,6 +42,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 //   // {path: 'auth/page404', component: Page404Component},
 //   // {path: '', component: SigninComponent},
 // ];
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [AppComponent],
