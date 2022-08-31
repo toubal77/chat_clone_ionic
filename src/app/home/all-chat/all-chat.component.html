@@ -18,11 +18,11 @@
     <div class="container" style="border: 1px solid red; height:120px">
         <ion-grid>
             <ion-row>
-                <ion-col *ngFor="let itemStory of listStory; let i = index">
+                <ion-col *ngFor="let user of users; let i = index">
                     <ion-avatar>
-                        <img [src]=itemStory.img>
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
                     </ion-avatar>
-                    <ion-label>{{itemStory.label + i}} </ion-label>
+                    <ion-label>{{user['username']}} </ion-label>
                 </ion-col>
             </ion-row>
         </ion-grid>
