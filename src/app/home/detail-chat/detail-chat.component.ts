@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from 'src/app/service/message.service';
 
 @Component({
   selector: 'app-detail-chat',
@@ -8,7 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailChatComponent implements OnInit {
   id: number;
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private messageService: MessageService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -20,4 +23,13 @@ export class DetailChatComponent implements OnInit {
 
   }
 
+  onSubmit(){
+    const inputEl = document.getElementById('input-text')as HTMLInputElement | null;
+const message= inputEl?.value;
+console.log(message);
+console.log(inputEl);
+
+this.messageService.sendMessage(message,this.id);
+  }
 }
+

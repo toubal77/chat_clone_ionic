@@ -52,16 +52,18 @@
 </ion-content>
 <ion-footer>
     <ion-toolbar>
+
         <ion-buttons slot="start">
             <ion-button>
                 <ion-icon slot="icon-only" name="add-outline" color="primary"></ion-icon>
             </ion-button>
         </ion-buttons>
-        <ion-input placeholder="Votre message"></ion-input>
+        <input id="input-text" type="text" placeholder="Votre message" />
         <ion-buttons slot="end">
-            <ion-button>
+            <ion-button (click)="onSubmit()">
                 Envoyer
             </ion-button>
         </ion-buttons>
+
     </ion-toolbar>
 </ion-footer>

@@ -3,6 +3,10 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
 import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -18,10 +22,16 @@ userSubjects = new Subject<User[]>();
 
    getAllUsers(){
    this.firestore.collection<User>('users').get().subscribe((querySnap) => {
-   querySnap.docs.forEach(user => {
+   console.log(querySnap);
+    querySnap.docs.forEach(user => {
       this.users.push(user.data());
     });
    });
   this.emitUsers();
 }
+
+getIdUser(){
+return firebase.auth().currentUser.uid;
 }
+}
+
